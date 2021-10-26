@@ -1,1 +1,6 @@
 ros总线舵机机械臂串口协议  https://blog.csdn.net/qq_38288618/article/details/78583478
+ubuntu usb转串口驱动问题？
+ubuntu自身没有带USBSerial 驱动， # lsmod | grep usbserial 命令无输出，怎末安装usb转串口驱动？
+找到办法了， modprobe usbserial， modprobe pl2303这两个命令就可以。
+在这一步前，还需要 cp /lib/modules/3.13.0-55-generic/kernel/drivers/usb/serial/pl2303.ko /usr/src/linux-headers-3.13.0-55-generic/drivers/usb/serial/ 单独编译出pl2303.ko
+没有测试 只是为了练习github
